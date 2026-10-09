@@ -3,18 +3,6 @@ class Solution
 public:
     vector<int> twoSum(vector<int>& nums, int target)
     {
-        if (nums.size() < 2 || nums.size() >= 10000)
-        {
-            cout << "ERROR: Invalid List size" << endl;
-            return {};
-        }
-
-        else if (target <= -1000000000 || target >= 1000000000)
-        {
-            cout << "ERROR: Invalid Target" << endl;
-            return {};
-        }
-
         for (int i = 0; i < nums.size(); i++)
         {
             for (int j = i + 1; j < nums.size(); j++)
@@ -30,7 +18,6 @@ public:
     }
 };
 
-// Constraints:
 // Humne nums.size() built-in function use kiya hai,
 // jo vector ke elements ki total quantity return karta hai.
 
