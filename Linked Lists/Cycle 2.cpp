@@ -1,32 +1,31 @@
-class Solution
-{
+class Solution {
 public:
     ListNode* detectCycle(ListNode* head)
-    {
+{
         ListNode* slow = head;
         ListNode* fast = head;
 
-        // Floyd's Cycle 1: Cycle Detect Karna
+        // Phase 1: Detect if a cycle exists
         while (fast != NULL && fast->next != NULL)
         {
             slow = slow->next;
             fast = fast->next->next;
 
-            if (slow == fast)
+            if (slow == fast) 
             {
                 slow = head;
                 break;
             }
         }
 
-        // Agar Cycle 1 mein meeting nahi hui, toh cycle nahi hai
+        // If no cycle is found
         if (fast == NULL || fast->next == NULL)
         {
             return NULL;
         }
 
-        // Floyd's Cycle 2: Cycle Ka Starting Node Find Karna
-        while (slow != fast)
+        // Phase 2: Find the starting node of the cycle
+        while (slow != fast) 
         {
             slow = slow->next;
             fast = fast->next;
@@ -35,6 +34,7 @@ public:
         return slow;
     }
 };
+
 
 /*
 Floyd's Cycle 1: Cycle Detect Karna
