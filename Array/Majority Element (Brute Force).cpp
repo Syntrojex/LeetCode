@@ -23,3 +23,6 @@ public:
         return -1;
     }
 };
+
+
+// Yahan agar aik farz ha phela number na b howa to fre us ki again 0 ho jay gi or dosre element ko dkehe gi
