@@ -4,6 +4,7 @@ public:
 {
         ListNode* slow = head;
         ListNode* fast = head;
+        bool isCycle = false;
 
         // Phase 1: Detect if a cycle exists
         while (fast != NULL && fast->next != NULL)
@@ -13,17 +14,18 @@ public:
 
             if (slow == fast) 
             {
-                slow = head;
+                isCycle = true;
                 break;
             }
         }
 
         // If no cycle is found
-        if (fast == NULL || fast->next == NULL)
+        if (!isCycle)
         {
             return NULL;
         }
 
+        slow = head;
         // Phase 2: Find the starting node of the cycle
         while (slow != fast) 
         {
