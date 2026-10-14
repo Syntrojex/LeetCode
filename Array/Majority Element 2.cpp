@@ -11,14 +11,15 @@ public:
         int freq2 = 0;
         int ans2 = 0;
 
+        // Pehla pass: 2 possible candidates find karna
         for (int i = 0; i < nums.size(); i++)
         {
-            if (freq1 == 0)
+            if (freq1 == 0 && ans2 != nums[i])
             {
                 ans1 = nums[i];
                 freq1 = 1;
             }
-            else if (freq2 == 0)
+            else if (freq2 == 0 && ans1 != nums[i])
             {
                 ans2 = nums[i];
                 freq2 = 1;
@@ -38,6 +39,7 @@ public:
             }
         }
 
+        // Doosra pass: candidates ki actual frequency count karna
         int count1 = 0;
         int count2 = 0;
 
@@ -47,12 +49,14 @@ public:
             {
                 count1++;
             }
+
             else if (nums[i] == ans2)
             {
                 count2++;
             }
         }
 
+        // Jo candidate n/3 se zyada baar aya usko result mein add karo
         if (count1 > nums.size() / 3)
         {
             result.push_back(ans1);
@@ -97,7 +101,7 @@ Approach:
 8. Pehle pass ke baad ans1 aur ans2 sirf possible candidates hain.
    Unki actual frequency abhi confirm nahi hui.
 
-9. Isliye doosre pass mein dono candidates ki actual frequency
+9. Isliye doosre loop mein dono candidates ki actual frequency
    dobara count karte hain.
 
 10. Jo candidate n/3 se zyada baar appear kare,
