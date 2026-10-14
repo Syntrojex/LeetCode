@@ -30,7 +30,6 @@ public:
 };
 
 /*
-Visual idea
 [2, 2, 1, 1, 1, 2, 2]
 
 ans me at the end of the day amjority element khud hi ajay ga 
