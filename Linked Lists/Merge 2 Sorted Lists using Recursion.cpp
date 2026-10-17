@@ -35,5 +35,20 @@ public:
 };
 
 /*
-is ki descrition on pending
+Approach:
+
+- Agar kisi bhi linked list ka head NULL ho, to doosri list return kar do,
+  kyun ke uske tamam remaining nodes merged list ka hissa ban jayenge.
+- Agar head1 ki value head2 ki value se chhoti ya equal ho, to head1
+  ko merged list ka current node banao.
+- head1->next ko recursive call se merge karo, taake baqi nodes sorted
+  order mein jud jayein.
+- Agar head2 ki value chhoti ho, to head2 ko current node banao aur
+  uske next ko recursive call se merge karo.
+- Har recursive call chhoti values ko pehle jorti hai aur phir current
+  node return karti hai.
+- Aakhir mein dono sorted linked lists aik sorted linked list ban jati hain.
+
+Time Complexity: O(m + n)
+Space Complexity: O(m + n), recursive call stack ki wajah se.
 */
